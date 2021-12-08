@@ -1,0 +1,72 @@
+.blink-caret-class {
+  position: relative;
+}
+
+.blink-caret-class::after {
+  content: "";
+  width: 4px;
+  height: 70%;
+  top: 20%;
+  position: absolute;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: white;
+  }
+}
+
+@media (min-width: 992px) {
+  .home-white-underline::before {
+    content: "";
+    width: 70%;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    bottom: 0;
+    left: 0.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .white-underline::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    bottom: 0;
+    left: 0.5rem;
+    animation-name: white-underline-animation-out;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+  }
+  .white-underline:hover::after {
+    animation-name: white-underline-animation;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes white-underline-animation {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 70%;
+  }
+}
+
+@keyframes white-underline-animation-out {
+  from {
+    width: 70%;
+  }
+  to {
+    width: 0%;
+  }
+}
